@@ -15,7 +15,7 @@ function Sidebar() {
   return (
     <nav className="w-64 bg-white p-5 border-r border-sky-100 flex flex-col">
       <div>
-        <h1 className="text-3xl font-bold mb-10 text-sky-800">Aura ✨</h1>
+        <h1 className="text-3xl font-bold mb-10 text-sky-800">Eunoia ✨</h1>
         <ul className="space-y-2">
           {navItems.map((item) => (
             <li key={item.path} className="relative">
