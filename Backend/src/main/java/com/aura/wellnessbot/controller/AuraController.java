@@ -12,7 +12,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/aura") // Base URL for all endpoints in this controller
 // 👇 ADD THIS ANNOTATION 👇
-@CrossOrigin(origins = "http://localhost:5173") // Allows requests from your Vite frontend
+@CrossOrigin(origins = "https://eunoia-14c.vercel.app") // Allows requests from your Vite frontend
 public class AuraController {
 
     private final AuraService auraService;
