@@ -29,10 +29,7 @@ function Insights() {
     const entries = JSON.parse(savedEntries);
     const combinedText = entries.slice(0, 5).map(e => e.text).join('\n---\n');
     try {
-      // --- Start of Corrected Code ---
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await axios.post(`${API_URL}/api/v1/aura/insights`, { message: combinedText });
-      // --- End of Corrected Code ---
+      const response = await axios.post('/api/v1/aura/insights', { message: combinedText });
       setInsight(response.data.reply);
     } catch (error) {
       console.error("Error fetching insight:", error);
