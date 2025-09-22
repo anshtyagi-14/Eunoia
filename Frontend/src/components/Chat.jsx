@@ -23,7 +23,8 @@ function Chat() {
     setInput('');
     setIsBotTyping(true);
     try {
-      const response = await axios.post('/api/v1/aura/chat', { message: input });
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await axios.post(`${API_URL}/api/v1/aura/chat`, { message: input });
       const botMessage = { sender: 'bot', text: response.data.reply };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
