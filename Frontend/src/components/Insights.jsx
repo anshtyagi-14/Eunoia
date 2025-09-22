@@ -29,7 +29,10 @@ function Insights() {
     const entries = JSON.parse(savedEntries);
     const combinedText = entries.slice(0, 5).map(e => e.text).join('\n---\n');
     try {
-      const response = await axios.post('/api/v1/aura/insights', { message: combinedText });
+      // --- Start of Corrected Code ---
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await axios.post(`${API_URL}/api/v1/aura/insights`, { message: combinedText });
+      // --- End of Corrected Code ---
       setInsight(response.data.reply);
     } catch (error) {
       console.error("Error fetching insight:", error);
@@ -41,7 +44,7 @@ function Insights() {
 
   return (
     <AnimatedPage>
-      {/* KEY CHANGE: Applying the same CSS Grid layout as the Chat page */}
+      {/* Applying the same CSS Grid layout as the Chat page */}
       <div className={`h-full max-w-4xl mx-auto grid grid-rows-[auto_1fr] gap-4 p-6 lg:p-10 transition-filter duration-300 ${isModalOpen ? 'filter blur-sm' : ''}`}>
         
         {/* Header: First row (auto height) */}
